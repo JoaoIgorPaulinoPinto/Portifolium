@@ -1,0 +1,11 @@
+.projects {
+  border-radius: 16px;
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 10px;
+}

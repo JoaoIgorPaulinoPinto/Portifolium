@@ -1,0 +1,28 @@
+.project-card {
+  display: flex;
+  text-align: left;
+  color: white;
+  padding: 14px;
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0;
+}
+.project-name {
+  width: 90%;
+}
+.project-card:hover {
+  background-color: #333;
+  transform: translateX(4px);
+  text-align: start;
+}
+
+.project-owner-pic img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
