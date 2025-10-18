@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import LoginButtom from "./Components/login-buttom/login-buttom";
 import ProjectList from "./Components/projects-list/projects-list";
 import TextEditor from "./Components/text-editor/text-editor";
 
@@ -31,13 +32,8 @@ export default function App() {
 
   return (
     <div className="background">
-      <div className="github-badge">
-        <img
-          src="https://avatars.githubusercontent.com/u/161848302?v=4&size=64"
-          alt="GitHub"
-        />
-        <span>João Igor Paulino Pinto</span>
-      </div>
+      <LoginButtom />
+
       <div className="left-side">
         <ProjectList />
       </div>
