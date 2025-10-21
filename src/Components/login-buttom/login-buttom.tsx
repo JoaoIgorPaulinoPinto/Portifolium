@@ -1,57 +1,71 @@
-import axios from "axios";
+// LoginButton.tsx
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
+import { AuthService } from "../../service/AuthService";
+import useUser from "../../store/user.store";
 
 import "./login-buttom.css";
-interface GithubUser {
-  id: string;
-  username: string;
-  email?: string;
-  avatar_url?: string;
-}
+
 export default function LoginButton() {
-  const [user, setUser] = useState<Partial<GithubUser> | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user, setUser } = useUser();
+  const [code, setCode] = useState<string | null>(null);
+
+  const handleLogin = async (authCode: string) => {
+    try {
+      const accessToken = await AuthService.exchangeCodeForToken(authCode);
+      AuthService.saveToken(accessToken);
+    } catch (error) {
+      console.error("Erro no login:", error);
+    }
+  };
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const urlCode = params.get("code");
+    if (urlCode) {
+      setCode(urlCode);
+      window.history.replaceState({}, document.title, "/");
+    }
+  }, []);
+
+  useEffect(() => {
+    const token = AuthService.getToken();
+    if (!token) return;
+
     const fetchUser = async () => {
       try {
-        const res = await axios.get<Partial<GithubUser>>(
-          "http://localhost:3000/user",
-          {
-            withCredentials: true,
-          }
-        );
-        console.log(res);
-        setUser(res.data);
+        const res = await AuthService.getUserData();
+        setUser({
+          id: res.data.id,
+          username: res.data.login,
+          email: res.data.email,
+          avatar_url: res.data.avatar_url,
+          repos: res.data.repos_url,
+        });
       } catch (err) {
         console.error("Erro ao buscar usuário:", err);
-        setUser(null);
-      } finally {
-        setLoading(false);
       }
     };
+
     fetchUser();
   }, []);
 
-  if (loading) return <div>Carregando...</div>;
+  useEffect(() => {
+    if (code && !AuthService.getToken()) {
+      handleLogin(code);
+    }
+  }, [code]);
 
   return (
-    <>
-      {!user ? (
-        <a href="http://localhost:3000/auth/github?redirect_uri=http://localhost:5173">
-          <button>Login com GitHub</button>
-        </a>
+    <div className="github-badge">
+      {!AuthService.getToken() ? (
+        <a href="http://localhost:3000/auth/github">Login com GitHub</a>
       ) : (
-        <div className="github-badge">
-          <span>{user.username}</span>
-          <img
-            src={user.avatar_url}
-            alt={user.username}
-            width={64}
-            height={64}
-          />
-        </div>
+        <>
+          <span>{user?.username}</span>
+          <img src={user?.avatar_url} width={64} />
+        </>
       )}
-    </>
+    </div>
   );
 }

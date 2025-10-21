@@ -33,10 +33,7 @@ export default function App() {
   return (
     <div className="background">
       <LoginButtom />
-
-      <div className="left-side">
-        <ProjectList />
-      </div>
+      <div className="left-side">{<ProjectList />}</div>
       <div className="right-side">
         {/* Título */}
         <h1 style={{ color: "white", marginBottom: "10px" }}>RestauranteApp</h1>

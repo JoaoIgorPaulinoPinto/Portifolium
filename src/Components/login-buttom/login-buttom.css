@@ -14,3 +14,17 @@
   transition: 0.2s;
   z-index: 100;
 }
+a {
+  color: "white";
+  text-decoration: "none";
+  background-color: "transparent";
+  border: "none";
+  padding: "8px";
+  display: "inline-block";
+}
+button {
+  color: "white";
+  border: "none";
+  background-color: "transparent";
+  margin-left: "10px";
+}
