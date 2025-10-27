@@ -1,0 +1,160 @@
+/* ============================= */
+/* Reset e box-sizing            */
+/* ============================= */
+
+/* ============================= */
+/* Container principal           */
+/* ============================= */
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-background-alt);
+  display: flex;
+  gap: 100px;
+  padding: var(--space-lg);
+  color: var(--color-text);
+}
+
+/* ============================= */
+/* Lado esquerdo (lista de projetos) */
+/* ============================= */
+.left-side {
+  flex: 1;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* ============================= */
+/* Lado direito (editor e cards) */
+/* ============================= */
+.right-side {
+  margin-right: 50px;
+  flex: 2;
+  justify-content: start;
+  align-items: start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ============================= */
+/* Input de nova seção           */
+/* ============================= */
+.projects-search-input {
+  min-width: 80%;
+  flex: 1;
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  border-radius: var(--border-radius-lg);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-border);
+  padding: var(--space-md);
+  outline: none;
+  transition: border-color var(--transition-medium),
+    transform var(--transition-medium);
+}
+
+.projects-search-input:focus {
+  border-color: var(--color-text-secondary);
+  transform: translateY(-1px);
+}
+
+/* Botão de adicionar nova seção */
+.projects-add-buttom {
+  width: auto;
+  padding: var(--space-lg);
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-xxl);
+  font-weight: bold;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-medium),
+    transform var(--transition-medium);
+}
+
+.projects-add-buttom:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Container do input + botão */
+.projects-datails-actions {
+  display: flex;
+  gap: var(--space-sm);
+  width: 100%;
+  height: 50px;
+}
+
+/* ============================= */
+/* Cards de detalhes             */
+/* ============================= */
+.projects-details {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-md);
+  padding-top: 0;
+  overflow-y: auto;
+}
+
+/* Estilo geral da scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-lg);
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius-lg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-secondary);
+}
+
+/* ============================= */
+/* Card individual               */
+/* ============================= */
+.datail-card {
+  margin-bottom: var(--space-sm);
+  border-radius: var(--border-radius-lg);
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-md);
+}
+
+/* ============================= */
+/* Github badge (opcional)       */
+/* ============================= */
+.github-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  padding: var(--space-xs);
+  border-radius: var(--border-radius-md);
+  transition: background-color var(--transition-medium);
+}
+
+.github-badge:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.github-badge img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}

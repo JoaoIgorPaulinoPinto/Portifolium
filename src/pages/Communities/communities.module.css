@@ -1,0 +1,189 @@
+/* ======================
+   PAGE E LAYOUT
+====================== */
+.page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-home-background-alt);
+}
+
+/* ======== BARRAS ======== */
+.side_bar {
+  width: 25%; /* ajustado de 20% para 25% */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.left_bar {
+  order: 1;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-right: 1px solid var(--color-border);
+  box-sizing: border-box;
+}
+
+.timeline {
+  order: 2;
+  display: flex;
+  flex: 1; /* ocupa o restante do espaço */
+  max-width: 55%; /* ajustado */
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+/* ===== LINHA DA TIMELINE ===== */
+.timeline_posts {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  overflow-y: auto;
+  padding-left: 60px;
+}
+
+/* Linha vertical */
+.timeline_posts::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(0, 188, 212, 0.1)
+  );
+  border-radius: 2px;
+}
+
+/* Cada post */
+.timeline_posts > * {
+  position: relative;
+}
+
+/* Ponto marcador */
+.timeline_posts > *::before {
+  cursor: default;
+  font-size: x-small;
+  content: "";
+  position: absolute;
+  top: 22px; /* alinha o ponto verticalmente */
+  left: -15px; /* centraliza o ponto na linha */
+  width: 20px;
+  height: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(0, 188, 212, 0.1)
+  );
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 188, 212, 0.6); /* brilho suave */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-right: 20px;
+}
+
+.timeline_top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.right_bar {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: calc(100% - 25% - 55%); /* ajustado automaticamente */
+  border-left: 1px solid var(--color-border);
+  padding: var(--space-md);
+}
+
+/* =================
+  PROFILE
+  ================== */
+
+/* ======================
+   COMMUNITIES
+====================== */
+.comunitys {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--space-sm);
+  align-items: center;
+  padding: 0;
+}
+
+.comunitys_actions {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.comunitys_actions button {
+  flex: 1;
+  padding: var(--space-md);
+  color: var(--color-text);
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+}
+
+/* ======================
+   TIMELINE / POSTS
+====================== */
+.timeline_posts {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  gap: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+/* ======================
+   TRENDING TOPICS
+====================== */
+.trending_topics {
+  overflow-y: auto;
+}
+
+/* ======================
+   HOVER / TRANSIÇÕES
+====================== */
+
+.comunitys_actions:hover {
+  transition: 0.3s ease, transform 0.2s ease;
+}
+.comunitys_actions:hover {
+  border: 1px solid var(--color-border-hover);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: scale(1.005);
+  cursor: pointer;
+}
+
+/* ======================
+   SCROLLBARS
+====================== */
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--color-border);
+  border-radius: 50px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--border-radius-md);
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--color-border);
+  border-radius: 50px;
+}

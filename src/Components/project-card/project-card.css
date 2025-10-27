@@ -1,34 +1,42 @@
 .project-card {
   display: flex;
-  text-align: left;
-  color: white;
-  padding: 14px;
-  background-color: #1f1f1f;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.2s;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  gap: 0;
+  justify-content: space-between;
+  padding: var(--space-sm);
+  border-radius: var(--border-radius-md);
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: transform var(--transition-fast),
+    background-color var(--transition-medium),
+    box-shadow var(--transition-medium);
+  gap: var(--space-xs);
+  min-height: max-content;
 }
-.project-name {
-  width: 90%;
-}
+
 .project-card:hover {
-  background-color: #333;
-  transform: translateX(4px);
-  text-align: start;
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-md);
+}
+
+.project-name {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text);
+  word-break: break-word;
+}
+
+.project-datails {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  gap: var(--space-xxs);
 }
 
 .project-owner-pic img {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-}
-.project-datails {
-  display: flex;
-  flex-direction: column;
-  font-size: small;
-  margin: 10px;
+  object-fit: cover;
 }

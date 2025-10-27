@@ -1,0 +1,17 @@
+.github-badge {
+  position: fixed; /* ou absolute se estiver dentro de um container relativo */
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: var(--color-text);
+  z-index: 1000;
+}
+.github-badge img {
+  border-radius: 100%;
+}

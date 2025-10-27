@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import type { Repo } from "../../service/UserReposService";
-import { UserReposService } from "../../service/UserReposService";
+import type { Repo } from "../../services/UserReposService";
+import { UserReposService } from "../../services/UserReposService";
 import useUser from "../../store/user.store";
 import ProjectCard from "../project-card/project-card";
 import "./projects-list.css";

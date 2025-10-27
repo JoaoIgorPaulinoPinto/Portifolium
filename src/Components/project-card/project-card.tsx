@@ -19,8 +19,8 @@ export default function ProjectCard(projeto: Projeto) {
   const formatado = date.toLocaleString("pt-BR", options);
   return (
     <div className="project-card" onClick={handleClick}>
-      <div className="project-name">{projeto.nome}</div>
       <div className="project-datails">
+        <div className="project-name">{projeto.nome}</div>
         <span>{formatado}</span>
       </div>
       <div className="project-owner-pic">

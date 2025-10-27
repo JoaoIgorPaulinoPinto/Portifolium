@@ -1,0 +1,138 @@
+/* ======================
+   PAGE E LAYOUT
+====================== */
+.page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-home-background-alt);
+}
+
+/* ======== BARRAS ======== */
+.side_bar {
+  width: 25%; /* ajustado de 20% para 25% */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.left_bar {
+  order: 1;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-right: 1px solid var(--color-border);
+  box-sizing: border-box;
+}
+
+.timeline {
+  order: 2;
+  display: flex;
+  flex: 1; /* ocupa o restante do espaço */
+  max-width: 55%; /* ajustado */
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.timeline_top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.right_bar {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: calc(100% - 25% - 55%); /* ajustado automaticamente */
+  border-left: 1px solid var(--color-border);
+  padding: var(--space-md);
+}
+
+/* =================
+  PROFILE
+  ================== */
+
+/* ======================
+   COMMUNITIES
+====================== */
+.comunitys {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--space-sm);
+  align-items: center;
+  padding: 0;
+}
+
+.comunitys_actions {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.comunitys_actions button {
+  flex: 1;
+  padding: var(--space-md);
+  color: var(--color-text);
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+}
+
+/* ======================
+   TIMELINE / POSTS
+====================== */
+.timeline_posts {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  gap: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+/* ======================
+   TRENDING TOPICS
+====================== */
+.trending_topics {
+  overflow-y: auto;
+}
+
+/* ======================
+   HOVER / TRANSIÇÕES
+====================== */
+
+.comunitys_actions:hover {
+  transition: 0.3s ease, transform 0.2s ease;
+}
+.comunitys_actions:hover {
+  border: 1px solid var(--color-border-hover);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: scale(1.005);
+  cursor: pointer;
+}
+
+/* ======================
+   SCROLLBARS
+====================== */
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--color-border);
+  border-radius: 50px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--border-radius-md);
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--color-border);
+  border-radius: 50px;
+}

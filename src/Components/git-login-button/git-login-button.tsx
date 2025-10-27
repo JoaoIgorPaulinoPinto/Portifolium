@@ -1,19 +1,26 @@
-// LoginButton.tsx
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { AuthService } from "../../service/AuthService";
+import { FaGithub } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { AuthService } from "../../services/AuthService";
 import useUser from "../../store/user.store";
-
-import "./login-buttom.css";
-
-export default function LoginButton() {
-  const { user, setUser } = useUser();
-  const [code, setCode] = useState<string | null>(null);
+export default function GitHubLoginButton() {
+  const [code, setCode] = useState("");
+  const { setUser } = useUser();
+  const navigate = useNavigate();
 
   const handleLogin = async (authCode: string) => {
     try {
       const accessToken = await AuthService.exchangeCodeForToken(authCode);
       AuthService.saveToken(accessToken);
+
+      const res = await AuthService.getUserData();
+      setUser({
+        id: res.data.id,
+        username: res.data.login,
+        email: res.data.email,
+        avatar_url: res.data.avatar_url,
+        repos: res.data.repos_url,
+      });
     } catch (error) {
       console.error("Erro no login:", error);
     }
@@ -46,26 +53,27 @@ export default function LoginButton() {
         console.error("Erro ao buscar usuário:", err);
       }
     };
-
     fetchUser();
-  }, []);
+  }, [navigate, setUser]);
 
   useEffect(() => {
     if (code && !AuthService.getToken()) {
       handleLogin(code);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [code]);
 
+  const handleClick = () => {
+    if (AuthService.getToken()) {
+      navigate("/home");
+    } else {
+      window.location.href = "http://localhost:3000/auth/github";
+    }
+  };
+
   return (
-    <div className="github-badge">
-      {!AuthService.getToken() ? (
-        <a href="http://localhost:3000/auth/github">Login com GitHub</a>
-      ) : (
-        <>
-          <span>{user?.username}</span>
-          <img src={user?.avatar_url} width={64} />
-        </>
-      )}
-    </div>
+    <button onClick={handleClick}>
+      <FaGithub />
+    </button>
   );
 }

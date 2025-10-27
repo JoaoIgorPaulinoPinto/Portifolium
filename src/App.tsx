@@ -1,70 +1,37 @@
-import { useState } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
-import LoginButtom from "./Components/login-buttom/login-buttom";
-import ProjectList from "./Components/projects-list/projects-list";
-import TextEditor from "./Components/text-editor/text-editor";
-
-interface CardData {
-  id: number; // identificador único
-  nome: string; // identificador único
-  content: string; // se precisar armazenar texto inicial
-}
+import NavigationBar from "./Components/navigation-bar/navigation-bar";
+import IndexPage from "./pages";
+import Communities from "./pages/Communities/communities";
+import Home from "./pages/Home/home";
+import Profile from "./pages/Profile/profile";
+import Search from "./pages/Search/search";
 
 export default function App() {
-  const [cards, setCards] = useState<CardData[]>([]);
+  const location = useLocation();
 
-  const [nCardNome, setNCardNome] = useState("");
+  // Lista de rotas onde a navbar não deve aparecer
+  const hideNavbarRoutes = ["/"];
 
-  const addCard = () => {
-    const newCard: CardData = {
-      id: Date.now(), // gera ID único
-      nome: nCardNome, // gera ID único
-      content: "",
-    };
-    setCards([...cards, newCard]);
-    setNCardNome("");
-  };
-
-  const destroyDatailsCard = (id: number) => {
-    const newCards = cards.filter((e) => e.id != id);
-    setCards(newCards);
-  };
+  // Verifica se a rota atual está na lista
+  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
   return (
-    <div className="background">
-      <LoginButtom />
-      <div className="left-side">{<ProjectList />}</div>
-      <div className="right-side">
-        {/* Título */}
-        <h1 style={{ color: "white", marginBottom: "10px" }}>RestauranteApp</h1>
+    <div className="App">
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<IndexPage />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/communities" element={<Communities />} />
+          {/* exemplo de outras rotas */}
+          {/* <Route path="/login" element={<Login />} /> */}
+        </Routes>
+      </main>
 
-        {/* Área do input + botão */}
-        <div className="projects-datails-actions">
-          <input
-            value={nCardNome}
-            onChange={(e) => setNCardNome(e.target.value)}
-            placeholder="Nome da nova seção..."
-            type="text"
-            className="projects-search-input"
-          />
-          <div className="projects-add-buttom" onClick={addCard}>
-            +
-          </div>
-        </div>
-
-        {/* Cards */}
-        <div className="projects-details">
-          {cards.map((card) => (
-            <div key={card.id} className="datail-card">
-              <TextEditor
-                id={card.id}
-                nomeDoCard={card.nome}
-                onDestroy={destroyDatailsCard}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* só renderiza se não for rota oculta */}
+      {!shouldHideNavbar && <NavigationBar />}
     </div>
   );
 }

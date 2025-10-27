@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Bartle&family=Bruno+Ace+SC&family=Dancing+Script:wght@400..700&family=Iceberg&family=Michroma&display=swap");
+
+/* Fonte coisada */
+
+@import url("https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Bruno+Ace+SC&family=Dancing+Script:wght@400..700&family=Michroma&display=swap");
+
+/* Fone do japao */
+@import url("https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Bartle&family=Bruno+Ace+SC&family=Dancing+Script:wght@400..700&family=Michroma&display=swap");
+/* Background */
+.background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-primary);
+}
+
+/* Fundo animado (GIF ou vídeo) */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 110%;
+  background-image: url("https://i.pinimg.com/originals/66/3a/46/663a4639787891da6037588879e36176.gif");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+  transition: transform 0.1s linear;
+  z-index: 0;
+}
+
+/* Nome do site */
+.site-name {
+  font-family: "Asimovian", sans-serif !important;
+
+  position: absolute;
+  top: var(--space-lg);
+  left: var(--space-lg);
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--color-text);
+  z-index: 2;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp var(--transition-medium) ease forwards;
+}
+
+/* ============================= */
+/* Login Container */
+.login-container {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  background-color: var(--color-background);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  z-index: 2;
+  min-width: 300px;
+  animation: fadeInUp var(--transition-medium) ease forwards;
+}
+
+/* Inputs */
+.login-own {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-own input {
+  padding: 12px 15px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  transition: all var(--transition-fast);
+}
+
+.login-own input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.login-own input:focus {
+  outline: none;
+  border-color: var(--color-text);
+}
+
+/* Botões de login */
+.login-button {
+  padding: 12px;
+  border: none;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all var(--transition-fast);
+  margin: 5px 0px;
+}
+
+.login-button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.login-button.secondary {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.login-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Botões de autenticação externa */
+.login-authentication {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+/* Todos os filhos diretos */
+.login-authentication > * {
+  padding: 10px;
+  border-radius: var(--border-radius-md);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  color: var(--color-text);
+}
+
+/* Google */
+.login-authentication > :first-child {
+  background-color: var(--color-social-google);
+}
+.login-authentication > :first-child:hover {
+  background-color: var(--color-social-google-hover);
+}
+
+/* GitHub */
+.login-authentication > :nth-child(2) {
+  background-color: var(--color-social-github);
+}
+.login-authentication > :nth-child(2):hover {
+  background-color: var(--color-social-github-hover);
+}
+
+/* Microsoft */
+.login-authentication > :last-child {
+  background-color: var(--color-social-microsoft);
+}
+.login-authentication > :last-child:hover {
+  background-color: var(--color-social-microsoft-hover);
+}

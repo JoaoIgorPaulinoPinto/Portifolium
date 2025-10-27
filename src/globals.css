@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Bartle&family=Bruno+Ace+SC&family=Dancing+Script:wght@400..700&family=Iceberg&family=Michroma&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+/* ============================= */
+/* Variáveis Globais (Design Tokens) */
+/* ============================= */
+:root {
+  /* ----------------------------- */
+  /* Fontes */
+  /* ----------------------------- */
+  --font-primary: "Roboto", "Jet Brains Mono", sans-serif; /* Fonte principal do projeto */
+  --font-secondary: "Segoe UI", sans-serif; /* Fonte alternativa */
+
+  /* ----------------------------- */
+  /* Cores */
+  /* ----------------------------- */
+  --color-primary: #1e90ff; /* Cor principal */
+  --color-primary-hover: #3b8edc; /* Hover cor principal */
+  --color-secondary: #ff6f61; /* Cor secundária */
+  --color-accent: #00b894; /* Cor de destaque */
+  --color-background: rgba(255, 255, 255, 0.08); /* Fundo padrão transparente */
+  --color-background-alt: #1e1e1e; /* Fundo alternativo / seções */
+  --color-text: #ffffff; /* Texto principal */
+  --color-text-secondary: #cfd8dc; /* Texto secundário / descritivo */
+  --color-border: rgba(255, 255, 255, 0.1); /* Bordas neutras */
+  --color-border-hover: rgba(255, 255, 255, 0.431); /* Bordas neutras */
+
+  --color-home-text: #bebebe; /* Texto principal */
+  --color--home-text-secondary: #cfd8dc; /* Texto secundário / descritivo */
+  --color-home-background: #000911; /* Fundo padrão transparente */
+  --color-home-background-alt: #00090d; /* Fundo alternativo / seções */
+  --color-home-background-alt-2: #000f16; /* Fundo alternativo / seções */
+  --color-home-background-hover: #00070a; /* Fundo alternativo / seções */
+
+  --color-navbar: #000d13; /* Fundo alternativo / seções */
+  --color-navbar-alt: #00121a; /* Fundo alternativo / seções */
+  --color-navbar-alt-2: #051b25; /* Fundo alternativo / seções */
+
+  /* ----------------------------- */
+  /* Cores de alerta / status */
+  --color-success: #2ecc71;
+  --color-warning: #f1c40f;
+  --color-error: #e74c3c;
+
+  /* ----------------------------- */
+  /* Cores de redes / botões sociais */
+  --color-social-google: #db4437;
+  --color-social-google-hover: #c33d2e;
+  --color-social-github: #242424;
+  --color-social-github-hover: #1b1f23;
+  --color-social-microsoft: #106ebe;
+  --color-social-microsoft-hover: #0d4ca5;
+
+  /* ----------------------------- */
+  /* Espaçamentos / Gaps */
+  /* ----------------------------- */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+
+  /* ----------------------------- */
+  /* Tamanhos de fonte */
+  /* ----------------------------- */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+
+  /* ----------------------------- */
+  /* Bordas e raios */
+  /* ----------------------------- */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* ----------------------------- */
+  /* Sombras */
+  /* ----------------------------- */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.16);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.4);
+
+  /* ----------------------------- */
+  /* Transições e animações */
+  /* ----------------------------- */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.6s ease;
+
+  --animation-gradient-duration: 15s;
+}
+* {
+  font-weight: 200;
+}
+/* ============================= */
+/* Reset Global / Base */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* remove scroll */
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  background-color: var(--color-background-alt);
+}
+
+/* =========================
+   Truncamento por número de linhas
+========================= */
+
+/* 1 linha */
+.NoWrapText-1line {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 2 linhas */
+.NoWrapText-2lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 3 linhas */
+.NoWrapText-3lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   Truncamento por largura fixa
+========================= */
+
+/* Máx 100px, 1 linha */
+.NoWrapText-100px {
+  display: inline-block;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Máx 150px, 1 linha */
+.NoWrapText-150px {
+  display: inline-block;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Máx 200px, 1 linha */
+.NoWrapText-200px {
+  display: inline-block;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Máx 250px, 1 linha */
+.NoWrapText-250px {
+  display: inline-block;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================= */
+/* Gradiente Animado */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ============================= */
+/* Fade In Up (entrada de elementos) */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

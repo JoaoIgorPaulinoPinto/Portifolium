@@ -1,0 +1,28 @@
+.comunitys_card {
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  display: flex;
+
+  padding: var(--space-md);
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.comunitys_card_title {
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  margin-bottom: var(--space-xs);
+}
+
+.comunitys_card_description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+.comunitys_card:hover {
+  border: 1px solid var(--color-border-hover);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: scale(1.005);
+  cursor: pointer;
+  transition: 0.3s ease, transform 0.2s ease;
+}

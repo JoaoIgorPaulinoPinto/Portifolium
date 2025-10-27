@@ -1,11 +1,37 @@
 .projects {
-  border-radius: 16px;
-  background-color: #2a2a2a;
-  border: 1px solid #3a3a3a;
   width: 100%;
-  padding: 12px;
+  padding: var(--space-md); /* espaçamento interno */
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  gap: 10px;
+  gap: var(--space-sm); /* espaço entre itens */
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-medium);
+}
+
+/* Estilo do texto "nenhum projeto" */
+.projects p {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  margin-top: var(--space-md);
+}
+
+/* Scrollbar personalizada */
+.projects::-webkit-scrollbar {
+  width: 8px;
+  border-radius: var(--border-radius-lg);
+}
+
+.projects::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.projects::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-md);
+}
+
+.projects::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-secondary);
 }
