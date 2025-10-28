@@ -1,8 +1,16 @@
 import { BellRing, Ellipsis, Settings, UserPlus } from "lucide-react";
+import { useState } from "react";
+import { ProfilePreferencesModal } from "../../Components/Modals/profile-preferences-modal";
 import Post from "../../Components/timeline-post/timeline-post";
 import styles from "./profile.module.css";
-
+type ModalPosition = { x: number; y: number } | null;
 export default function Profile() {
+  const [modalPosition, setModalPosition] = useState<ModalPosition>(null);
+
+  function openModal(e: React.MouseEvent<HTMLButtonElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setModalPosition({ x: rect.left, y: rect.bottom });
+  }
   const isOwner = false;
   return (
     <div className={styles.page}>
@@ -65,18 +73,24 @@ export default function Profile() {
             <button>
               {isOwner ? <Settings size={18} /> : <UserPlus size={18} />}
             </button>
-            <button>
+            <button onClick={(e) => openModal(e)}>
               {isOwner ? <Ellipsis size={18} /> : <BellRing size={18} />}
             </button>
+            {modalPosition && (
+              <ProfilePreferencesModal
+                position={modalPosition}
+                onClose={() => setModalPosition(null)}
+              />
+            )}
           </div>
         </div>
-        <div className={styles.timeline_filter}>
+        {/* <div className={styles.timeline_filter}>
           {Array.from({ length: 6 }).map((_, i) => (
             <button key={i} className={styles.timeline_filter_option}>
               <span>Projeto {i}</span>
             </button>
           ))}
-        </div>
+        </div> */}
         <div className={styles.new_update_button}>
           <button>+</button>
         </div>

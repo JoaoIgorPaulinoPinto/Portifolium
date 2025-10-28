@@ -25,7 +25,7 @@
   box-sizing: border-box;
 }
 
-.central_bar {
+.timeline {
   order: 2;
   display: flex;
   flex: 1; /* ocupa o restante do espaço */
@@ -43,67 +43,6 @@
   width: calc(100% - 25% - 55%); /* ajustado automaticamente */
   border-left: 1px solid var(--color-border);
   padding: var(--space-md);
-}
-
-.timeline {
-  order: 2;
-  display: flex;
-  flex: 1; /* ocupa o restante do espaço */
-  max-width: 55%; /* ajustado */
-  flex-direction: column;
-  gap: var(--space-md);
-  padding: var(--space-md);
-}
-/* ===== LINHA DA TIMELINE ===== */
-.timeline_posts {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  overflow-y: auto;
-  padding-left: 16px;
-}
-
-/* Linha vertical */
-.timeline_posts::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0px;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.4),
-    rgba(0, 188, 212, 0.1)
-  );
-  border-radius: 2px;
-}
-
-/* Cada post */
-.timeline_posts > * {
-  position: relative;
-}
-
-/* Ponto marcador */
-.timeline_posts > *::before {
-  cursor: default;
-  font-size: x-small;
-  content: "";
-  position: absolute;
-  top: 22px; /* alinha o ponto verticalmente */
-  left: -15px; /* centraliza o ponto na linha */
-  width: 20px;
-  height: 1px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.4),
-    rgba(0, 188, 212, 0.1)
-  );
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(0, 188, 212, 0.6); /* brilho suave */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-right: 20px;
 }
 /* ======================
    PROFILE CARD
@@ -241,13 +180,6 @@
 /* ======================
    TIMELINE / POSTS
 ====================== */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  padding: var(--space-md);
-  min-width: 0; /* essencial para overflow funcionar corretamente */
-}
 
 .timeline_filter {
   display: flex;

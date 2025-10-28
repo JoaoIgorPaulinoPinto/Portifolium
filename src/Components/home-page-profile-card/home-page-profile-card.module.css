@@ -18,13 +18,18 @@
 /* Botões no topo direito */
 .profile_card_actions_top {
   position: absolute;
+  display: flex;
   top: var(--space-sm);
   right: var(--space-sm);
   display: flex;
   gap: var(--space-xs);
+  align-items: center;
+  justify-content: center;
 }
 
 .profile_card_actions_top button {
+  z-index: 10;
+  text-align: center;
   background: none;
   border: none;
   color: white;
@@ -75,7 +80,7 @@
   font-size: 12px;
   color: var(--color-home-text-secondary);
 }
-.profile_card:hover,
+/* .profile_card:hover,
 .profile_card_img img:hover {
   transition: 0.3s ease, transform 0.2s ease;
 
@@ -84,4 +89,4 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transform: scale(1.005);
   cursor: pointer;
-}
+} */

@@ -67,6 +67,25 @@ export default function Communities() {
             comments={45}
             likes={120}
           />
+
+          <Post
+            project="EcoApp"
+            title="Atualização do Rastreador de Reciclagem"
+            description="Implementamos a visualização de estatísticas semanais."
+            details="Usuários agora podem ver quantos itens reciclaram e receber dicas..."
+            comments={45}
+            likes={120}
+          />
+
+          <Post
+            project="EcoApp"
+            title="Atualização do Rastreador de Reciclagem"
+            description="Implementamos a visualização de estatísticas semanais."
+            details="Usuários agora podem ver quantos itens reciclaram e receber dicas..."
+            comments={45}
+            likes={120}
+          />
+
           <Post
             project="EcoApp"
             title="Atualização do Rastreador de Reciclagem"

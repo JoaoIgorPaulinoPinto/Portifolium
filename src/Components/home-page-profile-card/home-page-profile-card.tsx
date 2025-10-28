@@ -1,5 +1,7 @@
-import { Ellipsis, Settings } from "lucide-react";
+import { Ellipsis, Forward } from "lucide-react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ProfilePreferencesModal } from "../Modals/profile-preferences-modal";
 import styles from "./home-page-profile-card.module.css";
 
 interface ProfileCardProps {
@@ -8,22 +10,34 @@ interface ProfileCardProps {
   following: number;
   avatar: string;
 }
-
+type ModalPosition = { x: number; y: number } | null;
 export default function ProfileCard(props: ProfileCardProps) {
   const navigate = useNavigate();
 
   const GoToProfile = () => {
     navigate("/profile");
   };
+  const [modalPosition, setModalPosition] = useState<ModalPosition>(null);
+
+  function openModal(e: React.MouseEvent<HTMLButtonElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setModalPosition({ x: rect.left, y: rect.bottom });
+  }
 
   return (
-    <div className={styles.profile_card} onClick={GoToProfile}>
+    <div className={styles.profile_card}>
       <div className={styles.profile_card_actions_top}>
-        <button>
-          <Settings size={18} />
+        <button onClick={(e) => openModal(e)}>
+          <Ellipsis size={20} />
         </button>
-        <button>
-          <Ellipsis size={18} />
+        {modalPosition && (
+          <ProfilePreferencesModal
+            position={modalPosition}
+            onClose={() => setModalPosition(null)}
+          />
+        )}
+        <button onClick={GoToProfile}>
+          <Forward size={20} />
         </button>
       </div>
 

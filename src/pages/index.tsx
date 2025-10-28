@@ -47,7 +47,7 @@ export default function IndexPage() {
       <div className="background-image" ref={backgroundRef}></div>
 
       {/* Nome do site */}
-      <div className="site-name">PORTIFOLIUM</div>
+      <div className="site-name">PORTFOLIUM</div>
 
       {/* Formulário de login */}
       <div className="login-container">

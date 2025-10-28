@@ -33,46 +33,49 @@
   flex-direction: column;
   gap: var(--space-md);
   padding: var(--space-md);
+  overflow-y: auto; /* scroll agora fica aqui */
+  position: relative; /* necessário para ::before funcionar */
+  min-height: 100%;
 }
+
 /* ===== LINHA DA TIMELINE ===== */
 .timeline_posts {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  overflow-y: auto;
-  padding-left: 60px;
+  padding-left: 16px;
+  /* overflow-y removido daqui */
 }
 
-/* Linha vertical */
+/* Linha vertical
 .timeline_posts::before {
   content: "";
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0px;
   width: 2px;
+  min-height: 100%;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.4),
     rgba(0, 188, 212, 0.1)
   );
   border-radius: 2px;
+  z-index: 0;
 }
 
-/* Cada post */
 .timeline_posts > * {
   position: relative;
 }
 
-/* Ponto marcador */
 .timeline_posts > *::before {
   cursor: default;
   font-size: x-small;
   content: "";
   position: absolute;
-  top: 22px; /* alinha o ponto verticalmente */
-  left: -15px; /* centraliza o ponto na linha */
+  top: 22px;
+  left: -15px;
   width: 20px;
   height: 1px;
   background: linear-gradient(
@@ -81,11 +84,10 @@
     rgba(0, 188, 212, 0.1)
   );
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(0, 188, 212, 0.6); /* brilho suave */
+  box-shadow: 0 0 8px rgba(0, 188, 212, 0.6);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin-right: 20px;
-}
-
+} */
 .timeline_top {
   display: flex;
   width: 100%;

@@ -31,11 +31,11 @@
   flex: 1; /* ocupa o restante do espaço */
   max-width: 55%; /* ajustado */
   flex-direction: column;
-  min-height: 100%;
   gap: var(--space-md);
   padding: var(--space-md);
   overflow-y: auto; /* scroll agora fica aqui */
   position: relative; /* necessário para ::before funcionar */
+  min-height: 100%;
 }
 
 /* ===== LINHA DA TIMELINE ===== */
@@ -45,8 +45,6 @@
   flex-direction: column;
   gap: var(--space-md);
   padding-left: 16px;
-  min-height: 100%;
-  max-height: none; /* remove limite */
   /* overflow-y removido daqui */
 }
 
