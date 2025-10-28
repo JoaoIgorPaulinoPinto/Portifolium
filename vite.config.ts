@@ -2,10 +2,10 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: "/", // <--- importante para SPA no Vercel
   server: {
-    host: true, // permite acesso por IP na rede local
+    host: true,
     port: 5173,
   },
   resolve: {
