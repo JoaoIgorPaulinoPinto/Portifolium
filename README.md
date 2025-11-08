@@ -1,73 +1,97 @@
-# React + TypeScript + Vite
+# 🚀 RestaurantApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicativo desenvolvido por **João Igor Paulino Pinto** para gestão de restaurante, com funcionalidades como menu, pedidos, usuários e painel administrativo.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Clonar o Repositório
 
-## React Compiler
+**_git clone https://github.com/JoaoIgorPaulinoPinto/RestaurantApp.git_**
+**_cd RestaurantApp_**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Instalar Dependências
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**_npm install_**
+ou
+**_yarn_**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🧱 Configurar Variáveis de Ambiente (se aplicável)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Crie um arquivo **.env** na raiz do projeto e adicione suas configurações, por exemplo:
+
+```
+PORT=3000
+DATABASE_URL="postgres://usuario:senha@localhost:5432/meubanco"
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+_(Ajuste conforme as necessidades do seu projeto)_
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🧰 Scripts Úteis
+
+- **_npm run dev_** — Executa o projeto em modo de desenvolvimento (com hot‑reload)
+- **_npm run build_** — Compila o código para produção
+- **_npm start_** — Inicia a versão compilada em produção
+- **_npm test_** — Executa os testes (se houverem)
+
+_(Ajuste os scripts conforme o que estiver configurado no package.json)_
+
+---
+
+## 🌐 Acessar o Aplicativo
+
+- URL local: **http://localhost:3000** _(ou a porta que você definiu)_
+- Se tiver painel web ou app mobile, ajuste conforme necessário.
+
+---
+
+## 🧩 Estrutura de Pastas Sugerida
+
 ```
+📦 RestaurantApp/
+├── src/
+│   ├── controllers/
+│   ├── services/
+│   ├── models/
+│   ├── dtos/
+│   ├── routes.ts
+│   └── server.ts
+├── public/ or client/
+├── .env
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+_(Adapte conforme a estrutura real do seu projeto)_
+
+---
+
+## 🧾 Tecnologias Utilizadas
+
+- **Node.js**
+- **TypeScript**
+- **Express**
+- **Prisma** (opcional, se estiver usando ORM)
+- Outras bibliotecas/tecnologias que o projeto inclua (Front‑end, Mobile, etc.)
+
+---
+
+## 💡 Observações
+
+- Mantenha o README atualizado sempre que o projeto evoluir.
+- Verifique se o URL de clone e links internos estão corretos.
+- Se houver configuração especial (Docker, CI/CD), documente aqui.
+
+---
+
+## 🧑‍💻 Autor
+
+**João Igor Paulino Pinto**
+📧 [joaoigorpaulinopinto@gmail.com](mailto:joaoigorpaulinopinto@gmail.com)
+🌐 [https://github.com/JoaoIgorPaulinoPinto](https://github.com/JoaoIgorPaulinoPinto)
