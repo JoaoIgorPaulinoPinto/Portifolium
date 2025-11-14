@@ -1,3 +1,4 @@
+import CreateCommunityButton from "../../Components/community-create-button/create-community-button";
 import CommunityCard from "../../Components/home-page-community-card/home-page-community-card";
 import ProfileCard from "../../Components/home-page-profile-card/home-page-profile-card";
 import SearchBar from "../../Components/search-posts-input/search-posts-input";
@@ -18,9 +19,7 @@ export default function Home() {
         />
 
         <div className={styles.comunitys}>
-          <div className={styles.comunitys_actions}>
-            <button>Criar comunidade</button>
-          </div>
+          <CreateCommunityButton />
 
           <CommunityCard
             title="EcoApp Devs"
@@ -47,78 +46,19 @@ export default function Home() {
           />
         </div>
         <div className={styles.timeline_posts}>
-          <Post
-            project="EcoApp"
-            title="Atualização do Rastreador de Reciclagem"
-            description="Implementamos a visualização de estatísticas semanais."
-            details="Usuários agora podem ver quantos itens reciclaram e receber dicas..."
-            comments={45}
-            likes={120}
-          />
-          <Post
-            project="GameDevHub"
-            title="Protótipo multiplayer testado"
-            description="Primeiro teste com matchmaking e servidores."
-            details="Realizamos testes internos com matchmaking automático..."
-            comments={78}
-            likes={210}
-          />
-          <Post
-            project="SmartHome"
-            title="Controle de luz via app"
-            description="Agora é possível controlar luzes remotamente."
-            details="Adicionamos rotinas automáticas e controle remoto pelo app móvel."
-            comments={38}
-            likes={105}
-          />
-          <Post
-            project="SmartHome"
-            title="Controle de luz via app"
-            description="Agora é possível controlar luzes remotamente."
-            details="Adicionamos rotinas automáticas e controle remoto pelo app móvel."
-            comments={38}
-            likes={105}
-          />
-          <Post
-            project="SmartHome"
-            title="Controle de luz via app"
-            description="Agora é possível controlar luzes remotamente."
-            details="Adicionamos rotinas automáticas e controle remoto pelo app móvel."
-            comments={38}
-            likes={105}
-          />
-          <Post
-            project="SmartHome"
-            title="Controle de luz via app"
-            description="Agora é possível controlar luzes remotamente."
-            details="Adicionamos rotinas automáticas e controle remoto pelo app móvel."
-            comments={38}
-            likes={105}
-          />
-          <Post
-            project="SmartHome"
-            title="Controle de luz via app"
-            description="Agora é possível controlar luzes remotamente."
-            details="Adicionamos rotinas automáticas e controle remoto pelo app móvel."
-            comments={38}
-            likes={105}
-          />
-          <Post
-            project="SmartHome"
-            title="Controle de luz via app"
-            description="Agora é possível controlar luzes remotamente."
-            details="Adicionamos rotinas automáticas e controle remoto pelo app móvel."
-            comments={38}
-            likes={105}
-          />
-          <Post
-            project="SmartHome"
-            title="Controle de luz via app"
-            description="Agora é possível controlar luzes remotamente."
-            details="Adicionamos rotinas automáticas e controle remoto pelo app móvel."
-            comments={38}
-            likes={105}
-          />
+          {Array.from({ length: 50 }).map((_, i) => (
+            <div data-date={`${i}/01/2025`}>
+              <Post
+                key={i}
+                project="EcoApp"
+                title="Atualização do Rastreador de Reciclagem"
+                description="Implementamos a visualização de estatísticas semanais."
+                details="Usuários agora podem ver quantos itens reciclaram e receber dicas..."
+                comments={45}
+                likes={120}
+              />
+            </div>
+          ))}
         </div>
       </div>
 

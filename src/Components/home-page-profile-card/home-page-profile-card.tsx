@@ -1,7 +1,7 @@
 import { Ellipsis, Forward } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ProfilePreferencesModal } from "../Modals/profile-preferences-modal";
+import { ProfilePreferencesModal } from "../Modals/Popover/profile-preferences-modal";
 import styles from "./home-page-profile-card.module.css";
 
 interface ProfileCardProps {

@@ -32,7 +32,6 @@
   max-width: 55%; /* ajustado */
   flex-direction: column;
   gap: var(--space-md);
-  padding: var(--space-md);
 }
 
 .timeline_top {
@@ -88,8 +87,6 @@
    TIMELINE / POSTS
 ====================== */
 .timeline_posts {
-  padding-left: var(--space-md);
-  padding-right: var(--space-md);
   gap: var(--space-md);
   display: flex;
   flex-direction: column;

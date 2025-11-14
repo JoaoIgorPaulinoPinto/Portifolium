@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CreateCommunityButton from "../../Components/community-create-button/create-community-button";
 import CommunityCard from "../../Components/home-page-community-card/home-page-community-card";
 import ProfileCard from "../../Components/home-page-profile-card/home-page-profile-card";
 import SearchBar from "../../Components/search-posts-input/search-posts-input";
@@ -20,9 +21,7 @@ export default function Communities() {
         />
 
         <div className={styles.comunitys}>
-          <div className={styles.comunitys_actions}>
-            <button>Criar comunidade</button>
-          </div>
+          <CreateCommunityButton />
 
           <CommunityCard
             title="EcoApp Devs"

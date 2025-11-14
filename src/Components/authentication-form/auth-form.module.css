@@ -1,0 +1,174 @@
+.handler_auth_type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-radius: var(--border-radius-md);
+  width: fit-content;
+  margin: 0px 0 15px 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+}
+.handler_auth_type span {
+  border: none;
+  color: var(--color-text);
+  margin: 0;
+  padding: 10px;
+  border-radius: var(--border-radius-md);
+  font-weight: bold;
+  margin: 5px 0;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+.login_button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form input {
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+.form input::placeholder {
+  color: var(--color-text);
+}
+
+.form select,
+option {
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+.form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  /* remove a seta padrão e adiciona uma custom */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg fill='white' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+}
+
+.form select:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.form select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 4px var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.form option {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 10px;
+}
+
+.login_button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.back_button {
+  padding: 10px 16px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.back_button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.step_buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ==========================
+   ERROS
+========================== */
+.error {
+  color: var(--color-error);
+  font-size: 0.85rem;
+  margin: 5px 0 10px;
+  text-align: left;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.handler_auth_type > :first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.handler_auth_type > :last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.selected {
+  background-color: var(--color-primary);
+}
+.not_selected {
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all var(--transition-fast);
+  margin: 5px 0;
+}
+
+.error {
+  color: var(--color-error);
+  margin: 0;
+  padding: 0;
+}

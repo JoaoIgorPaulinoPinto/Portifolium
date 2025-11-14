@@ -1,0 +1,163 @@
+/* --- OVERLAY (fundo escurecido com blur moderno) --- */
+.overlay {
+  cursor: default;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+/* --- CONTAINER CENTRAL DO MODAL --- */
+.center_modal_container {
+  color: var(--color-home-text);
+  background-color: var(--color-home-background-alt);
+  border-radius: var(--border-radius-lg);
+  padding: 28px;
+  width: 520px;
+  min-height: 360px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* --- TÍTULO DO MODAL --- */
+.modal_title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* --- GRUPOS DE INPUT (coluna) --- */
+.modal_option_column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.modal_option_column label {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* --- INPUTS / TEXTAREAS --- */
+.input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-home-background);
+  color: var(--color-home-text);
+
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+}
+
+.textarea {
+  min-height: 100px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-home-background);
+  resize: vertical;
+  color: var(--color-home-text);
+
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.textarea:focus {
+  border-color: var(--color-primary);
+}
+
+/* --- TAGS (chips modernos) --- */
+.tags_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.tag_item {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-home-background);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.2s ease;
+  color: var(--color-home-text);
+}
+
+.tag_item:hover {
+  background-color: var(--color-home-background-alt);
+}
+
+.tag_selected {
+  background-color: var(--color-primary);
+  color: var(--color-home-text);
+  border-color: var(--color-primary-hover);
+}
+
+/* --- BOTÃO FINAL --- */
+.modal_actions {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.modal_create_button,
+.modal_cancel_button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* --- Botão de Criar --- */
+.modal_create_button {
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.modal_create_button:hover {
+  color: white;
+  background-color: var(--color-primary);
+}
+
+/* --- Botão de Cancelar --- */
+.modal_cancel_button {
+  color: red;
+  border: 1px solid red;
+}
+
+.modal_cancel_button:hover {
+  color: white;
+  background-color: red;
+}
+/* --- ANIMAÇÃO --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
